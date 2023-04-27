@@ -1,0 +1,47 @@
+import io.mateo.cxf.codegen.wsdl2java.Wsdl2Java
+
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "8.0.1"
+    id "com.adarshr.test-logger" version "3.2.0"
+    id "io.mateo.cxf-codegen" version "1.2.1"
+}
+
+group 'ua.ithillel.javapro'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    jacksonVersion = '2.14.2'
+}
+
+cxfCodegen {
+    cxfVersion = '4.0.0'
+}
+
+dependencies {
+    implementation 'jakarta.xml.ws:jakarta.xml.ws-api:4.0.0'
+    implementation 'com.sun.xml.ws:jaxws-rt:4.0.1'
+
+}
+
+task generateFromWsdl(type: Wsdl2Java) {
+    toolOptions {
+        wsdl.set(file("$rootDir/employeeService.wsdl"))
+        outputDir.set(file("$buildDir/generated/wsdl"))
+        packageNames.set(["ua.ithillel.soap.server.client"])
+    }
+    allJvmArgs = ["-Duser.language=en", "-Duser.country=US"]
+}
+
+build.dependsOn generateFromWsdl
+compileJava.mustRunAfter generateFromWsdl
+
+test {
+    outputs.upToDateWhen { false }
+    useJUnitPlatform()
+    testLogging.showStandardStreams = true
+}
