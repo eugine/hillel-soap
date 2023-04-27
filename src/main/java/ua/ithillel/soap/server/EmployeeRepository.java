@@ -1,7 +1,6 @@
 package ua.ithillel.soap.server;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class EmployeeRepository {
 
