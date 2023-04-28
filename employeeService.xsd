@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by XML-WS Runtime (https://github.com/eclipse-ee4j/metro-jax-ws). Runtime's version is XML-WS Runtime 4.0.1 git-revision#298606e. -->
-<xs:schema xmlns:tns="http://server.soap.ithillel.ua/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
-           targetNamespace="http://server.soap.ithillel.ua/">
+<xs:schema xmlns:tns="http://employee.server.soap.ithillel.ua/" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           version="1.0" targetNamespace="http://employee.server.soap.ithillel.ua/">
 
     <xs:element name="addEmployee" type="tns:addEmployee"/>
 
@@ -22,13 +22,16 @@
 
     <xs:element name="updateEmployeeResponse" type="tns:updateEmployeeResponse"/>
 
-    <xs:complexType name="getEmployees">
-        <xs:sequence/>
+    <xs:complexType name="updateEmployee">
+        <xs:sequence>
+            <xs:element name="arg0" type="xs:int"/>
+            <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="getEmployeesResponse">
+    <xs:complexType name="updateEmployeeResponse">
         <xs:sequence>
-            <xs:element name="return" type="tns:employee" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="return" type="tns:employee" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -48,6 +51,16 @@
     <xs:complexType name="getEmployeeResponse">
         <xs:sequence>
             <xs:element name="return" type="tns:employee" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getEmployees">
+        <xs:sequence/>
+    </xs:complexType>
+
+    <xs:complexType name="getEmployeesResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:employee" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -73,19 +86,6 @@
     <xs:complexType name="deleteEmployeeResponse">
         <xs:sequence>
             <xs:element name="return" type="xs:boolean"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="updateEmployee">
-        <xs:sequence>
-            <xs:element name="arg0" type="xs:int"/>
-            <xs:element name="arg1" type="xs:string" minOccurs="0"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="updateEmployeeResponse">
-        <xs:sequence>
-            <xs:element name="return" type="tns:employee" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
 </xs:schema>

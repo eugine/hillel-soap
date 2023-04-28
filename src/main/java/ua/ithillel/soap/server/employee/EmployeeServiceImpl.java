@@ -1,4 +1,4 @@
-package ua.ithillel.soap.server;
+package ua.ithillel.soap.server.employee;
 
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebService;
@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 
 @RequiredArgsConstructor
-@WebService(endpointInterface = "ua.ithillel.soap.server.EmployeeService")
+@WebService(endpointInterface = "ua.ithillel.soap.server.employee.EmployeeService")
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository employeeRepositoryImpl;
