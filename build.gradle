@@ -1,5 +1,7 @@
 import io.mateo.cxf.codegen.wsdl2java.Wsdl2Java
 
+import java.awt.ComponentOrientation
+
 plugins {
     id 'java'
     id "io.freefair.lombok" version "8.0.1"
@@ -50,8 +52,8 @@ task generateFromWsdlOrder(type: Wsdl2Java) {
     allJvmArgs = ["-Duser.language=en", "-Duser.country=US"]
 }
 
-build.dependsOn generateFromWsdl
-compileJava.mustRunAfter generateFromWsdl
+build.dependsOn generateFromWsdl, generateFromWsdlOrder
+compileJava.mustRunAfter generateFromWsdl, generateFromWsdlOrder
 
 test {
     outputs.upToDateWhen { false }

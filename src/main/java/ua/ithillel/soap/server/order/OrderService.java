@@ -12,5 +12,5 @@ public interface OrderService {
 
     @WebMethod
     Order getOrderById(int id);
-    
+
 }
