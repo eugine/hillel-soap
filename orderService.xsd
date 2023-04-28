@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by XML-WS Runtime (https://github.com/eclipse-ee4j/metro-jax-ws). Runtime's version is XML-WS Runtime 4.0.1 git-revision#298606e. --><xs:schema xmlns:tns="http://order.server.soap.ithillel.ua/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://order.server.soap.ithillel.ua/">
+
+    <xs:element name="get" type="tns:get"/>
+
+    <xs:element name="getAll" type="tns:getAll"/>
+
+    <xs:element name="getAllResponse" type="tns:getAllResponse"/>
+
+    <xs:element name="getResponse" type="tns:getResponse"/>
+
+    <xs:complexType name="get">
+        <xs:sequence>
+            <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:order" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="order">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string" minOccurs="0"/>
+            <xs:element name="products" type="tns:product" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="product">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="price" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="getAll">
+        <xs:sequence/>
+    </xs:complexType>
+
+    <xs:complexType name="getAllResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:order" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

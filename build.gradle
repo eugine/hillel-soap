@@ -41,8 +41,17 @@ task generateFromWsdl(type: Wsdl2Java) {
     allJvmArgs = ["-Duser.language=en", "-Duser.country=US"]
 }
 
-build.dependsOn generateFromWsdl
-compileJava.mustRunAfter generateFromWsdl
+task generateOrderFromWsdl(type: Wsdl2Java) {
+    toolOptions {
+        wsdl.set(file("$rootDir/orderService.wsdl"))
+        outputDir.set(file("$buildDir/generated/wsdl"))
+        packageNames.set(["ua.ithillel.soap.order.client"])
+    }
+    allJvmArgs = ["-Duser.language=en", "-Duser.country=US"]
+}
+
+build.dependsOn generateFromWsdl, generateOrderFromWsdl
+compileJava.mustRunAfter generateFromWsdl, generateOrderFromWsdl
 
 test {
     outputs.upToDateWhen { false }
