@@ -1,4 +1,4 @@
-package ua.ithillel.soap.server;
+package ua.ithillel.soap.server.employee;
 
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebService;

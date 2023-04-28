@@ -5,6 +5,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import ua.ithillel.soap.server.employee.Employee;
+import ua.ithillel.soap.server.employee.EmployeeRepository;
+import ua.ithillel.soap.server.employee.EmployeeServiceImpl;
 
 import java.util.List;
 

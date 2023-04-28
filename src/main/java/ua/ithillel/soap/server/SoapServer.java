@@ -1,6 +1,10 @@
 package ua.ithillel.soap.server;
 
 import jakarta.xml.ws.Endpoint;
+import ua.ithillel.soap.server.employee.Employee;
+import ua.ithillel.soap.server.employee.EmployeeRepository;
+import ua.ithillel.soap.server.employee.EmployeeService;
+import ua.ithillel.soap.server.employee.EmployeeServiceImpl;
 
 import java.util.List;
 
