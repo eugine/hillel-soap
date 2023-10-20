@@ -10,6 +10,7 @@ import ua.ithillel.soap.server.employee.EmployeeRepository;
 import ua.ithillel.soap.server.employee.EmployeeServiceImpl;
 
 import java.util.List;
+import java.util.UUID;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
